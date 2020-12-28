@@ -22,13 +22,27 @@ export class TodoItem extends Component {
           />
           {'  '}
           {title}
+          <button onClick={this.props.delTodo.bind(this, id)} style={btnStyle}>
+            X
+          </button>
         </p>
       </div>
     );
   }
 }
+const btnStyle = {
+  background: '#ff0000',
+  color: '#fff',
+  border: 'none',
+  padding: ' 5px 10px',
+  borderRadius: '25%',
+  cursor: 'pointer',
+  float: 'right',
+};
 
 TodoItem.protoTypes = {
   todos: PropTypes.object.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired,
 };
 export default TodoItem;
